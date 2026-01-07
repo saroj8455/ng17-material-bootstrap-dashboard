@@ -24,25 +24,28 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 // ];
 
 export const routes: Routes = [
-  
   // ==============================================================
   // 1. PUBLIC ROUTES (Lazy Loaded)
   // ==============================================================
-  { 
-    path: '', 
-    redirectTo: 'login', 
-    pathMatch: 'full' 
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
-  { 
-    path: 'login', 
+  {
+    path: 'login',
     // Lazy Load: Only downloads the Login code when needed
-    loadComponent: () => import("./pages/login/login.component").then(c => c.LoginComponent),
-    canActivate: [guestGuard]
+    loadComponent: () =>
+      import('./pages/login/login.component').then((c) => c.LoginComponent),
+    canActivate: [guestGuard],
   },
-  { 
-    path: 'register', 
-    loadComponent: () => import('./pages/register/register.component').then(c => c.RegisterComponent),
-    canActivate: [guestGuard]
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./pages/register/register.component').then(
+        (c) => c.RegisterComponent
+      ),
+    canActivate: [guestGuard],
   },
 
   // ==============================================================
@@ -53,43 +56,66 @@ export const routes: Routes = [
     path: '',
     canActivate: [authGuard], // <--- Applies to all children below
     children: [
-      { 
-        path: 'dashboard', 
-        loadComponent: () => import('./pages/dashboard/dashboard.component').then(c => c.DashboardComponent) 
+      {
+        path: 'dashboard',
+        loadComponent: () =>
+          import('./pages/dashboard/dashboard.component').then(
+            (c) => c.DashboardComponent
+          ),
       },
-      { 
-        path: 'analytics', 
-        loadComponent: () => import('./pages/analytics/analytics.component').then(c => c.AnalyticsComponent) 
+      {
+        path: 'analytics',
+        loadComponent: () =>
+          import('./pages/analytics/analytics.component').then(
+            (c) => c.AnalyticsComponent
+          ),
       },
-      { 
-        path: 'posts', 
-        loadComponent: () => import('./pages/posts/posts.component').then(c => c.PostsComponent) 
+      {
+        path: 'posts',
+        loadComponent: () =>
+          import('./pages/posts/posts.component').then((c) => c.PostsComponent),
       },
-      { 
-        path: 'posts/:id', 
-        loadComponent: () => import('./pages/post-details/post-details.component').then(c => c.PostDetailsComponent) 
+      {
+        path: 'posts/:id',
+        loadComponent: () =>
+          import('./pages/post-details/post-details.component').then(
+            (c) => c.PostDetailsComponent
+          ),
       },
-      { 
-        path: 'reports', 
-        loadComponent: () => import('./pages/reports/reports.component').then(c => c.ReportsComponent) 
+      // {
+      //   path: 'reports',
+      //   loadComponent: () =>
+      //     import('./pages/reports/reports.component').then(
+      //       (c) => c.ReportsComponent
+      //     ),
+      // },
+      {
+        path: 'settings',
+        loadComponent: () =>
+          import('./pages/settings/settings.component').then(
+            (c) => c.SettingsComponent
+          ),
       },
-      { 
-        path: 'settings', 
-        loadComponent: () => import('./pages/settings/settings.component').then(c => c.SettingsComponent) 
-      }
-    ]
+    ],
   },
 
   // ==============================================================
   // 3. WILDCARD ROUTE (Must be last)
   // ==============================================================
   // Handles typos like /dashbaord -> Redirects to dashboard (or a 404 page)
-  // { 
-  //   path: '**', 
-  //   redirectTo: 'dashboard' 
+  // {
+  //   path: '**',
+  //   redirectTo: 'dashboard'
   // }
-    { 
-    path: '**', 
-    component:PageNotFoundComponent
-  }
+  {
+    path: 'reports',
+    loadComponent: () =>
+      import('./pages/reports/reports.component').then(
+        (c) => c.ReportsComponent
+      ),
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
+  },
 ];

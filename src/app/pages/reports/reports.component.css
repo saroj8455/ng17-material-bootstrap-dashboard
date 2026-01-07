@@ -1,0 +1,53 @@
+/* 1. SAFE AREA PADDING (Notch Support) */
+.safe-top-padding {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* 2. MOBILE INPUT STYLING */
+.mobile-input {
+  border-radius: 12px; /* Modern rounded corners */
+  border: 1px solid #dee2e6;
+  background-color: #f8f9fa; /* Slight grey background like iOS inputs */
+  font-size: 16px; /* Prevents iOS zoom on focus */
+  height: 3.5rem; /* Taller hit area for fingers */
+  box-shadow: none !important; /* Removes Bootstrap blue glow */
+}
+
+/* Focus State: Darker border instead of blue glow */
+.mobile-input:focus {
+  background-color: #fff;
+  border-color: #6c757d;
+}
+
+/* Error State */
+.mobile-input.is-invalid {
+  border-color: #dc3545;
+  background-image: none; /* Removes the default red '!' icon for cleaner look */
+}
+
+/* 3. BUTTONS */
+/* Increase touch target for header buttons */
+.btn-link {
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Disabled state for Save button */
+.btn-link:disabled {
+  color: #adb5bd !important; /* Light grey when invalid */
+}
+
+/* Specific styling for the delete button */
+.btn-action.text-danger:active {
+  background-color: #fee2e2; /* Light red background on press */
+  border-color: #fecaca;
+}
+
+/* PhonePe / UPI Style Button */
+.btn-action .bi-currency-rupee {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
