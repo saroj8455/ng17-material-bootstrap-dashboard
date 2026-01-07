@@ -3,6 +3,7 @@ import { MaterialConfigModule } from '../../primeconfig/materialconfig.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import { DatabaseService } from '../../services/database.service';
+import { Share } from '@capacitor/share';
 
 // Define the interface for a Contact
 interface Contact {
@@ -135,17 +136,27 @@ export class ProfileEditComponent implements OnInit {
     window.open(`tel:${mobile}`, '_self');
   }
 
-  shareContact(contact: Contact) {
-    if (navigator.share) {
-      navigator
-        .share({
-          title: contact.fullName,
-          text: `Check out this contact: ${contact.fullName} - ${contact.mobile}`,
-          url: '',
-        })
-        .catch((err) => console.error('Error sharing', err));
-    } else {
-      alert('Sharing is not supported on this browser.');
+  async shareContact(contact: Contact) {
+    // if (navigator.share) {
+    //   navigator
+    //     .share({
+    //       title: contact.fullName,
+    //       text: `Check out this contact: ${contact.fullName} - ${contact.mobile}`,
+    //       url: '',
+    //     })
+    //     .catch((err) => console.error('Error sharing', err));
+    // } else {
+    //   alert('Sharing is not supported on this browser.');
+    // }
+    try {
+      // Capacitor Share Method
+      await Share.share({
+        title: 'Share Contact',
+        text: `Here is the contact details:\nName: ${contact.fullName}\nMobile: +91 ${contact.mobile}`,
+        dialogTitle: 'Share Contact', // Title of the popup on Android
+      });
+    } catch (error) {
+      console.error('❌ Error sharing contact:', error);
     }
   }
   // --- NEW PAY FUNCTION ---
