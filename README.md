@@ -1,30 +1,62 @@
-# Clientapi
+# 🚀 ng17-material-bootstrap-dashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+![Angular](https://img.shields.io/badge/Angular-17.0-DD0031?style=for-the-badge&logo=angular)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-563D7C?style=for-the-badge&logo=bootstrap)
+![Material](https://img.shields.io/badge/Material-Design-blue?style=for-the-badge&logo=materialdesign)
 
-## Development server
+A robust, mobile-first Admin Dashboard starter kit. This project demonstrates how to effectively combine **Bootstrap's grid system** with **Angular Material components** in a **Standalone Component** architecture. It includes a complete authentication flow, protected routes, and optimized responsive tables.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Angular 17 Admin Dashboard
 
-## Code scaffolding
+A modern, responsive Admin Dashboard built with **Angular 17 (Standalone Components)**. It features secure authentication, lazy-loaded routing, reactive forms, and a mobile-first UI using Bootstrap 5 & Angular Material.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🚀 Features
 
-## Build
+### 🔐 Authentication & Security
+- **Login/Register:** Secure authentication flow using [DummyJSON API](https://dummyjson.com).
+- **Route Guards:**
+  - `AuthGuard`: Protects private routes (Dashboard, Posts, etc.).
+  - `GuestGuard`: Prevents logged-in users from accessing Login/Register pages.
+- **State Management:** `BehaviorSubject` based reactive state for instant UI updates (e.g., Sidebar Logout button).
+- **Session Handling:** Auto-redirects and local storage token management.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 📊 Dashboard & Analytics
+- **Responsive Charts:** Visual data representation using `ng2-charts` (Chart.js).
+- **KPI Cards:** Mobile-optimized statistic cards with dynamic sizing (`clamp()` logic).
+- **User Welcome:** Personalized welcome banner with user profile image.
 
-## Running unit tests
+### 📝 Post Management
+- **Data Table:** Responsive Angular Material table.
+  - *Desktop:* Shows Title, Body, Tags, Likes, Views.
+  - *Mobile:* Automatically hides complex columns to fit screen width perfectly.
+- **Details View:** Dynamic routing (`/posts/:id`) to view full post details.
+- **Loaders:** Custom centralized loading spinners.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 🛠 Architecture & Performance
+- **Angular 17 Standalone:** No `NgModules` (`app.module.ts`), using `app.config.ts`.
+- **Lazy Loading:** All routes are lazy-loaded for optimal initial bundle size.
+- **Strict Versioning:** Project dependencies are locked via `package-lock.json` and strict engine rules.
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🛠 Tech Stack
 
-## Further help
+- **Framework:** Angular 17
+- **Styling:** Bootstrap 5, Angular Material, Bootstrap Icons
+- **Data Visualization:** ng2-charts, Chart.js
+- **HTTP:** Angular HttpClient (Interceptors & Observables)
+- **Routing:** Angular Router (Lazy Loading, Functional Guards)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+
+## ⚙️ Installation
+
+This project enforces strict versioning. Please use `npm ci` to ensure you install the exact dependencies locked in the project.
+
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd <project-folder>
 
 ## base template for page 
 ```html
