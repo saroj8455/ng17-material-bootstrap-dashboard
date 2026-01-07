@@ -13,6 +13,7 @@ A modern, responsive Admin Dashboard built with **Angular 17 (Standalone Compone
 ## 🚀 Features
 
 ### 🔐 Authentication & Security
+
 - **Login/Register:** Secure authentication flow using [DummyJSON API](https://dummyjson.com).
 - **Route Guards:**
   - `AuthGuard`: Protects private routes (Dashboard, Posts, etc.).
@@ -21,18 +22,21 @@ A modern, responsive Admin Dashboard built with **Angular 17 (Standalone Compone
 - **Session Handling:** Auto-redirects and local storage token management.
 
 ### 📊 Dashboard & Analytics
+
 - **Responsive Charts:** Visual data representation using `ng2-charts` (Chart.js).
 - **KPI Cards:** Mobile-optimized statistic cards with dynamic sizing (`clamp()` logic).
 - **User Welcome:** Personalized welcome banner with user profile image.
 
 ### 📝 Post Management
+
 - **Data Table:** Responsive Angular Material table.
-  - *Desktop:* Shows Title, Body, Tags, Likes, Views.
-  - *Mobile:* Automatically hides complex columns to fit screen width perfectly.
+  - _Desktop:_ Shows Title, Body, Tags, Likes, Views.
+  - _Mobile:_ Automatically hides complex columns to fit screen width perfectly.
 - **Details View:** Dynamic routing (`/posts/:id`) to view full post details.
 - **Loaders:** Custom centralized loading spinners.
 
 ### 🛠 Architecture & Performance
+
 - **Angular 17 Standalone:** No `NgModules` (`app.module.ts`), using `app.config.ts`.
 - **Lazy Loading:** All routes are lazy-loaded for optimal initial bundle size.
 - **Strict Versioning:** Project dependencies are locked via `package-lock.json` and strict engine rules.
@@ -57,12 +61,24 @@ This project enforces strict versioning. Please use `npm ci` to ensure you insta
    ```bash
    git clone <your-repo-url>
    cd <project-folder>
+   ```
 
-## base template for page 
+## base template for page
+
 ```html
 <div class="d-flex align-items-center justify-content-center">
-    <div class="w-100 p-4">
-        <h1 class="text-center mb-5 fw-bold text-secondary">settings works!</h1>
-    </div>
+  <div class="w-100 p-4">
+    <h1 class="text-center mb-5 fw-bold text-secondary">settings works!</h1>
+  </div>
 </div>
 ```
+
+- npm install @capacitor/core@6 @capacitor/cli@6 --legacy-peer-deps
+- npx cap init
+- npm install @capacitor/android --legacy-peer-deps
+- npx cap add android
+- npx cap sync
+- npx cap open android
+- npm install @capacitor/status-bar --legacy-peer-deps
+- npx cap sync
+- https://developer.android.com/studio/write/create-app-icons

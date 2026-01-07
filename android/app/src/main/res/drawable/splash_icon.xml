@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Brain / AI Icon -->
+    <path
+        android:fillColor="#5D3FD3"
+        android:pathData="M12,2C7.03,2 3,6.03 3,11C3,13.68 4.18,16.09 6.06,17.74L6,21H18L17.94,17.74C19.82,16.09 21,13.68 21,11C21,6.03 16.97,2 12,2M12,20H9V18.88C8.5,18.67 8.03,18.42 7.6,18.14C6,16.89 5,14.73 5,11C5,7.13 8.13,4 12,4C15.87,4 19,7.13 19,11C19,14.73 18,16.89 16.4,18.14C15.97,18.42 15.5,18.67 15,18.88V20H12M12,6C10.5,6 9.1,6.5 8,7.3L9.4,8.7C10.1,8.3 11,8 12,8C13,8 13.9,8.3 14.6,8.7L16,7.3C14.9,6.5 13.5,6 12,6M12,16C13.5,16 14.9,15.5 16,14.7L14.6,13.3C13.9,13.7 13,14 12,14C11,14 10.1,13.7 9.4,13.3L8,14.7C9.1,15.5 10.5,16 12,16M12,10C11.5,10 11,10.2 10.6,10.6L12,12L13.4,10.6C13,10.2 12.5,10 12,10Z"/>
+
+    <!-- Decorative "Network" dots -->
+    <path
+        android:fillColor="#FF7043"
+        android:pathData="M19,5h2v2h-2zM2,5h2v2h-2zM19,17h2v2h-2zM2,17h2v2h-2z"/>
+</vector>

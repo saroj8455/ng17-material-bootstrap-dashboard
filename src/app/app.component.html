@@ -1,49 +1,101 @@
 <div class="container-fluid p-0 position-relative">
-  <button class="btn btn-light position-absolute top-0 start-0 m-3 d-md-none shadow-sm z-3" type="button"
-    data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list"
-      viewBox="0 0 16 16">
-      <path fill-rule="evenodd"
-        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+  <button
+    class="btn btn-light position-absolute safe-top-position top-0 start-0 m-3 d-md-none shadow-sm z-3"
+    type="button"
+    data-bs-toggle="offcanvas"
+    data-bs-target="#mobileMenu"
+    aria-controls="mobileMenu"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="currentColor"
+      class="bi bi-list"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+      />
     </svg>
   </button>
 
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title fw-bold" id="mobileMenuLabel">Menu</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  <div
+    class="offcanvas offcanvas-start"
+    tabindex="-1"
+    id="mobileMenu"
+    aria-labelledby="mobileMenuLabel"
+  >
+    <div class="offcanvas-header offcanvas-header-safe">
+      <!-- <h5 class="offcanvas-title fw-bold" id="mobileMenuLabel">Menu</h5> -->
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
     </div>
     <div class="offcanvas-body p-0">
       <div class="list-group list-group-flush">
-        <a routerLink="/dashboard" data-bs-dismiss="offcanvas" routerLinkActive="active"
-          [routerLinkActiveOptions]="{exact: true}" class="list-group-item list-group-item-action py-3">
+        <a
+          routerLink="/dashboard"
+          data-bs-dismiss="offcanvas"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="list-group-item list-group-item-action py-3"
+        >
           <i class="bi bi-speedometer2 me-2"></i> Dashboard
         </a>
-        <a routerLink="/posts" routerLinkActive="active" data-bs-dismiss="offcanvas"
-          class="list-group-item list-group-item-action py-3">
+        <a
+          routerLink="/posts"
+          routerLinkActive="active"
+          data-bs-dismiss="offcanvas"
+          class="list-group-item list-group-item-action py-3"
+        >
           <i class="bi bi-postcard me-2"></i> Posts
         </a>
-        <a routerLink="/analytics" routerLinkActive="active" data-bs-dismiss="offcanvas"
-          class="list-group-item list-group-item-action py-3">
+        <a
+          routerLink="/analytics"
+          routerLinkActive="active"
+          data-bs-dismiss="offcanvas"
+          class="list-group-item list-group-item-action py-3"
+        >
           <i class="bi bi-graph-up me-2"></i> Analytics
         </a>
-        <a routerLink="/reports" routerLinkActive="active" data-bs-dismiss="offcanvas"
-          class="list-group-item list-group-item-action py-3">
+        <a
+          routerLink="/reports"
+          routerLinkActive="active"
+          data-bs-dismiss="offcanvas"
+          class="list-group-item list-group-item-action py-3"
+        >
           <i class="bi bi-file-earmark-text me-2"></i> Reports
         </a>
-        <a routerLink="/settings" routerLinkActive="active" data-bs-dismiss="offcanvas"
-          class="list-group-item list-group-item-action py-3">
+        <a
+          routerLink="/settings"
+          routerLinkActive="active"
+          data-bs-dismiss="offcanvas"
+          class="list-group-item list-group-item-action py-3"
+        >
           <i class="bi bi-gear me-2"></i> Settings
         </a>
       </div>
       <div class="p-3 border-top">
-        <button *ngIf="isLoggedIn$ | async" (click)="onLogout()" data-bs-dismiss="offcanvas"
-          class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center gap-2 fw-bold">
+        <button
+          *ngIf="isLoggedIn$ | async"
+          (click)="onLogout()"
+          data-bs-dismiss="offcanvas"
+          class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center gap-2 fw-bold"
+        >
           <i class="bi bi-box-arrow-right"></i> Logout
         </button>
 
-        <a *ngIf="!(isLoggedIn$ | async)" routerLink="/login" data-bs-dismiss="offcanvas"
-          class="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2 fw-bold">
+        <a
+          *ngIf="!(isLoggedIn$ | async)"
+          routerLink="/login"
+          data-bs-dismiss="offcanvas"
+          class="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2 fw-bold"
+        >
           <i class="bi bi-box-arrow-in-right"></i> Login
         </a>
       </div>
@@ -54,12 +106,10 @@
   </div>
 
   <div class="row g-0 full-height-row">
-    <div class="col bg-primary left-side">
-
-    </div>
+    <div class="col bg-primary left-side"></div>
 
     <!-- <div class="col bg-white d-flex align-items-center justify-content-center"> -->
-    <div class="col bg-white">
+    <div class="col bg-white safe-top-padding">
       <!-- <app-login></app-login> -->
       <router-outlet></router-outlet>
     </div>

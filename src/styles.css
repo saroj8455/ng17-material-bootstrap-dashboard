@@ -103,17 +103,27 @@ p {
   font-size: var(--fs-400);
 }
 /* by framework */
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
 
 /* customize css for left and right pan  */
 .left-side {
   /* Using 100dvh (dynamic viewport height) handles mobile address bars better */
-  height: 100dvh; 
+  height: 100dvh;
   width: 100%;
-  
+
   /* Unsplash Image Settings */
-  background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-image: url("https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -123,17 +133,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   height: 100dvh;
 }
 
-
 /* 1. Target all form controls (inputs, textareas) when clicked */
 .form-control:focus {
   /* Removes the blue glow (Bootstrap's default shadow) */
-  box-shadow: none; 
-  
+  box-shadow: none;
+
   /* Removes the browser's default outline */
-  outline: none; 
-  
+  outline: none;
+
   /* Optional: Keep the border color gray instead of turning blue */
-  border-color: #ced4da; 
+  border-color: #ced4da;
 }
 
 /* 2. Extra safety: Apply to generic input tag just in case */
@@ -149,6 +158,29 @@ input:focus {
   }
   /* Content takes half screen on mobile */
   /* .right-side {
-    height: 50dvh; 
+    height: 50dvh;
   } */
+}
+
+/* Use this for fixed/absolute elements (like your menu button) */
+.safe-top-position {
+  top: 0; /* Fallback */
+  top: env(safe-area-inset-top, 0px);
+}
+
+/* Use this for main content containers (like your router-outlet wrapper) */
+.safe-top-padding {
+  padding-top: 0; /* Fallback */
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* SAFE AREA FIX FOR OFFCANVAS HEADER */
+.offcanvas-header-safe {
+  /* Standard 1rem padding + Device Notch Height */
+  padding-top: calc(1rem + env(safe-area-inset-top, 0px)) !important;
+
+  /* Keep standard padding for other sides */
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
