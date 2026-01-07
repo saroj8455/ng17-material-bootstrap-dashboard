@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import "primeicons/primeicons.css";
 
 :root {
   /* either --dark-mode or --no-dark-mode */
@@ -103,57 +102,53 @@ article {
 p {
   font-size: var(--fs-400);
 }
+/* by framework */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.p-card-title {
-  font-size: var(--fs-200);
-}
-footer {
-  /* position: absolute; */
-  /* bottom: 0; */
-  /* fix width  issue*/
+/* customize css for left and right pan  */
+.left-side {
+  /* Using 100dvh (dynamic viewport height) handles mobile address bars better */
+  height: 100dvh; 
   width: 100%;
-  padding: 2rem 0;
-}
-.p-card .p-card-footer {
-  padding: 1rem 0 0 0 !important;
-}
-
-/* breadcrumb */
-.p-breadcrumb {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 0;
-  padding: 1rem;
-}
-.p-menubar {
-  padding: 0.5rem;
-  background: #f9fafb;
-  color: #4b5563;
-  border: 1px solid #e5e7eb;
-  border-radius: 0;
+  
+  /* Unsplash Image Settings */
+  background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* fix buy and add to cart same size with responsive manner */
+.right-side {
+  height: 100dvh;
+}
 
-p-button {
-  /* font-size: 30px; */
-  /* display: inline-block; */
-  /* display: none; */
-  width: 100%;
+
+/* 1. Target all form controls (inputs, textareas) when clicked */
+.form-control:focus {
+  /* Removes the blue glow (Bootstrap's default shadow) */
+  box-shadow: none; 
+  
+  /* Removes the browser's default outline */
+  outline: none; 
+  
+  /* Optional: Keep the border color gray instead of turning blue */
+  border-color: #ced4da; 
 }
-.p-button {
-  width: 100% !important;
-  margin: 0;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  user-select: none;
-  align-items: center;
-  vertical-align: bottom;
-  text-align: center;
-  overflow: hidden;
-  position: relative;
+
+/* 2. Extra safety: Apply to generic input tag just in case */
+input:focus {
+  outline: none;
+  box-shadow: none;
 }
-.p-button-label {
-  font-weight: 500;
+
+/* Optional: Adjust for mobile if columns stack */
+@media (max-width: 767.98px) {
+  .left-side {
+    display: none; /* Image takes half screen on mobile */
+  }
+  /* Content takes half screen on mobile */
+  /* .right-side {
+    height: 50dvh; 
+  } */
 }

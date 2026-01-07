@@ -1,0 +1,26 @@
+/* Card Styling */
+.card {
+  transition: transform 0.2s;
+  border-radius: 12px; /* Softer corners */
+}
+
+/* Hover Effect (Optional - remove if not needed on mobile) */
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Icon Container Styling */
+.icon-box {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive Font Sizes for Mobile */
+@media (max-width: 576px) {
+  h3 {
+    font-size: 2rem; /* Slightly smaller numbers on very small screens */
+  }
+}

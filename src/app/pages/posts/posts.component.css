@@ -1,0 +1,69 @@
+/* Container adjustments */
+.table-container {
+  overflow-x: auto; /* Allows scroll if table somehow breaks out, safety net */
+}
+
+/* Row Styling */
+.hover-row:hover {
+  background-color: #f8f9fa; /* Light grey on hover */
+}
+
+/* Material Header Styling */
+th.mat-mdc-header-cell {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #6c757d;
+  background-color: #ffffff;
+}
+
+/* Title Text Logic */
+.title-text {
+  /* Dynamic font size: Minimum 16px, Target 18px, Max 20px */
+  font-size: clamp(1rem, 4dvw, 1.25rem);
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+/* Chip Styling */
+.small-chip {
+  font-size: 0.75rem !important; /* Smaller text for tags */
+  min-height: 24px !important;    /* Thinner chips */
+}
+
+/* MOBILE OPTIMIZATIONS */
+@media (max-width: 768px) {
+  
+  /* Make rows taller for easier tapping */
+  td.mat-mdc-cell {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  /* Adjust the stats font size */
+  .mobile-stat {
+    font-size: 0.9rem;
+  }
+}
+
+/* 1. Center the Loader in the middle of the screen/container */
+.loader-container {
+  display: flex;
+  flex-direction: column; /* Stack bar and text vertically */
+  justify-content: center;
+  align-items: center;
+  min-height: 300px; /* Give it space to sit in the middle */
+  width: 100%;
+}
+
+/* 2. Customize the Progress Bar */
+.big-bar {
+  /* Control Width: 50% of screen so centering is visible */
+  width: 50%;
+  max-width: 400px; 
+  border-radius: 10px; /* Optional: Rounded corners */
+  
+  /* ANGULAR 17+ (MDC) TRICK FOR HEIGHT */
+  /* This specifically targets the Material Design tokens */
+  --mdc-linear-progress-track-height: 15px;
+  --mdc-linear-progress-active-indicator-height: 15px;
+}

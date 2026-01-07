@@ -1,0 +1,34 @@
+/* Default Icon Box */
+.icon-box {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* MOBILE SPECIFIC OVERRIDES */
+@media (max-width: 768px) {
+  
+  /* Make the "Total Sales" label larger */
+  .mobile-label {
+    font-size: 1.1rem !important; /* Approx 18px */
+  }
+
+  /* Make the number values huge */
+  .mobile-value {
+    font-size: 2.2rem !important; /* Approx 35px */
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Make the percentage text readable */
+  .mobile-sub {
+    font-size: 1rem !important; /* Approx 16px */
+  }
+
+  /* Make the cards feel roomier on touch screens */
+  .card-body {
+    padding: 1.5rem !important;
+  }
+}

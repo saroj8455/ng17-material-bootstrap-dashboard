@@ -1,0 +1,46 @@
+/* Card Container */
+.register-card {
+  /* MINIMUM: 350px (prevents it from getting too skinny on foldables) */
+  /* PREFERRED: 90dvw (90% of the dynamic viewport width) */
+  /* MAXIMUM: 700px (stops growing on desktop) */
+  width: clamp(350px, 95dvw, 700px);
+  
+  border-radius: 12px;
+}
+
+/* Default Input Focus Fix (Removes Blue Glow) */
+.form-control:focus, .form-select:focus {
+  box-shadow: none;
+  border-color: #ced4da; /* Keep grey border */
+  border-width: 2px;
+}
+
+
+@media (max-width: 768px) {
+  
+  /* Make Labels larger and easier to read */
+  .mobile-label {
+    font-size: 1.1rem !important; /* ~18px */
+    margin-bottom: 0.5rem;
+  }
+
+  /* Make Input text larger (prevents iOS zoom on focus) */
+  .form-control-lg, .form-select-lg {
+    font-size: 1rem !important; /* 16px */
+  }
+
+  /* Helper text size */
+  .mobile-sub {
+    font-size: 1rem !important;
+  }
+
+  /* Button Text */
+  .mobile-btn {
+    font-size: 1.2rem !important;
+  }
+
+  /* Add more breathing room on mobile */
+  .card-body {
+    padding: 1.5rem !important;
+  }
+}

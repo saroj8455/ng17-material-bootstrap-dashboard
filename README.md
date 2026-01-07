@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## base template for page 
+```html
+<div class="d-flex align-items-center justify-content-center">
+    <div class="w-100 p-4">
+        <h1 class="text-center mb-5 fw-bold text-secondary">settings works!</h1>
+    </div>
+</div>
+```

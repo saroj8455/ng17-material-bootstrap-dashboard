@@ -1,0 +1,59 @@
+<div class="d-flex align-items-center justify-content-center">
+    <div class="w-100 p-4">
+        <h1 class="text-center mb-5 fw-bold text-secondary">Welcome Back</h1>
+        <div *ngIf="errorMessage" class="alert alert-danger mb-4" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i> {{ errorMessage }}
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mb-4">
+                <label for="username" class="form-label text-muted small fw-bold">USERNAME</label>
+                <input type="text" formControlName="username"
+                    [class.is-invalid]="f['username'].invalid && f['username'].touched" name="username"
+                    class="form-control form-control-lg fs-6 py-3" id="username" placeholder="Enter your username" />
+                <div *ngIf="f['username'].invalid && f['username'].touched" class="invalid-feedback">
+                    Username is required
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label for="password" class="form-label text-muted small fw-bold">PASSWORD</label>
+                <input type="password" formControlName="password"
+                    [class.is-invalid]="f['password'].invalid && f['password'].touched" name="password"
+                    class="form-control form-control-lg fs-6 py-3" id="password" placeholder="Enter your password" />
+                <div *ngIf="f['password'].invalid && f['password'].touched" class="invalid-feedback">
+                    Password is required
+                </div>
+                <div class="text-end mt-2">
+                    <a href="#" class="text-decoration-none small text-primary fw-bold">Forgot Password?</a>
+                </div>
+            </div>
+
+            <button type="submit"
+                class="btn btn-primary btn-lg w-100 mb-4 py-3 shadow-sm fw-bold d-flex align-items-center justify-content-center gap-2"
+                [disabled]="isLoading">
+
+                <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status"
+                    aria-hidden="true"></span>
+
+                <span *ngIf="!isLoading">LOGIN</span>
+                <span *ngIf="isLoading">LOGGING IN...</span>
+            </button>
+
+            <div class="text-center">
+                <p class="mb-1 text-muted">Don't have an account?</p>
+                <a routerLink="/register" class="btn btn-outline-secondary w-100 py-2 fw-bold">Create New Account</a>
+            </div>
+            <!-- <div class="d-flex gap-2 mt-4  flex-wrap">
+                <button (click)="onGetMe()" class="btn btn-success w-100 py-2  btn-lg">Get User Data (Me)</button>
+                <button (click)="onRefresh()" class="btn btn-warning  w-100 py-2 btn-lg">Refresh Token</button>
+            </div> -->
+        </form>
+    </div>
+</div>
+
+<!-- base template  -->
+<!-- <div class="d-flex align-items-center justify-content-center">
+    <div class="w-100 p-4">
+        <h1 class="text-center mb-5 fw-bold text-secondary">Welcome Back</h1>
+    </div>
+</div> -->

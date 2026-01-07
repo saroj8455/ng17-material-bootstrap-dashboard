@@ -1,0 +1,84 @@
+<div class="d-flex align-items-center justify-content-center">
+    <div class="card border-0 shadow-lg register-card my-4">
+        <div class="card-body p-4 p-md-5">
+
+            <h2 class="text-center fw-bold text-secondary mb-2">Create Account</h2>
+            <p class="text-center text-muted mb-5 mobile-sub">Join us to access your dashboard</p>
+
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                <div class="row g-3 mb-3">
+                    <div class="col-12 col-md-6">
+                        <label class="form-label fw-bold text-secondary mobile-label">First Name</label>
+                        <input type="text" class="form-control form-control-lg fs-6 py-3" formControlName="firstName"
+                            placeholder="Emily">
+                        <div *ngIf="f['firstName'].invalid && f['firstName'].touched" class="text-danger small mt-1">
+                            First name is required</div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label fw-bold text-secondary mobile-label">Last Name</label>
+                        <input type="text" class="form-control form-control-lg fs-6 py-3" formControlName="lastName"
+                            placeholder="Johnson">
+                        <div *ngIf="f['lastName'].invalid && f['lastName'].touched" class="text-danger small mt-1">Last
+                            name is required</div>
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-12 col-md-6">
+                        <label class="form-label fw-bold text-secondary mobile-label">Username</label>
+                        <input type="text" class="form-control form-control-lg fs-6 py-3" formControlName="username"
+                            placeholder="emilys">
+                        <div *ngIf="f['username'].invalid && f['username'].touched" class="text-danger small mt-1">
+                            Username is required</div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label fw-bold text-secondary mobile-label">Gender</label>
+                        <select class="form-select form-select-lg fs-6 py-3 text-muted" formControlName="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold text-secondary mobile-label">Email Address</label>
+                    <input type="email" class="form-control form-control-lg fs-6 py-3" formControlName="email"
+                        placeholder="emily.johnson@example.com">
+                    <div *ngIf="f['email'].invalid && f['email'].touched" class="text-danger small mt-1">Valid email is
+                        required</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold text-secondary mobile-label">Profile Image URL <small
+                            class="text-muted fw-normal">(Optional)</small></label>
+                    <input type="text" class="form-control form-control-lg fs-6 py-3" formControlName="image"
+                        placeholder="https://dummyjson.com/icon/emilys/128">
+                </div>
+
+                <div class="mb-5">
+                    <label class="form-label fw-bold text-secondary mobile-label">Password</label>
+                    <input type="password" class="form-control form-control-lg fs-6 py-3" formControlName="password"
+                        placeholder="Create a strong password">
+                    <div *ngIf="f['password'].invalid && f['password'].touched" class="text-danger small mt-1">Password
+                        (min 6 chars) is required</div>
+                </div>
+
+                <button type="submit" [disabled]="isLoading"
+                    class="btn btn-primary btn-lg w-100 py-3 fw-bold shadow-sm mb-3 mobile-btn">
+                    <span *ngIf="!isLoading">REGISTER NOW</span>
+                    <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2"></span>
+                    <span *ngIf="isLoading">Processing...</span>
+                </button>
+
+                <div class="text-center">
+                    <p class="mb-0 text-muted mobile-sub">Already have an account?</p>
+                    <a routerLink="/login" class="text-decoration-none fw-bold text-primary mobile-label">Log In
+                        Here</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
