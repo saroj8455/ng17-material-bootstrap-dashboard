@@ -1,0 +1,82 @@
+/* .server-card {
+  width: 100%;
+  max-width: 360px;
+   ideal mobile width
+}
+.server-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.server-card:active {
+  transform: scale(0.98);
+}
+.badge {
+  font-size: 0.9rem;
+}
+
+p {
+  line-height: 1.4;
+} */
+.material-card {
+  width: 100%;
+  max-width: 95dvw;
+
+  background: #ffffff;
+  border-radius: 16px;
+
+  padding: 20px 16px;
+
+  /* Material elevation */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.05);
+
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* Subtle lift on tap (Material feel) */
+.material-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Icon */
+.icon-wrapper i {
+  font-size: 32px;
+}
+
+/* Timestamp text */
+.timestamp {
+  font-size: 14px;
+  color: #6b7280; /* Material gray */
+}
+
+/* Uptime */
+.uptime {
+  font-size: 18px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.uptime .label {
+  margin-right: 6px;
+  color: #374151;
+}
+
+.uptime .value {
+  color: #2563eb; /* Material blue accent */
+  font-weight: 600;
+}
+.icon-wrapper i.text-success {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}

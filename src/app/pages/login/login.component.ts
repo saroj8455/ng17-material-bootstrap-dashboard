@@ -1,30 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth.service';
 import { MaterialConfigModule } from '../../primeconfig/materialconfig.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import {
+  ConfigService,
+  MobileApiResponse,
+} from '../../services/config.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MaterialConfigModule,RouterLink],
+  imports: [MaterialConfigModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isLoading = false; // Controls the spinner
   errorMessage = '';
 
+  mobileConfig!: MobileApiResponse;
+
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private configService: ConfigService
   ) {
     // Initialize the form with validation rules
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
+    });
+  }
+
+  ngOnInit(): void {
+    this.configService.mobileConfig().subscribe((resp) => {
+      console.log(resp.status);
+      this.mobileConfig = resp;
     });
   }
 
@@ -60,9 +74,9 @@ export class LoginComponent {
 
         // Redirect to Dashboard
         // Navigate to Dashboard and pass the 'res' object as 'userData'
-    this.router.navigate(['/dashboard'], { 
-      state: { userData: res } 
-    });
+        this.router.navigate(['/dashboard'], {
+          state: { userData: res },
+        });
       },
       error: (err) => {
         // ERROR
@@ -86,4 +100,11 @@ export class LoginComponent {
   //     error: (err) => this.output = 'Error: ' + err.message
   //   });
   // }
+  get formattedUptime() {
+    const sec = Math.floor(this.mobileConfig.uptime);
+    const h = Math.floor(sec / 3600);
+    const m = Math.floor((sec % 3600) / 60);
+    const s = sec % 60;
+    return `${h}h ${m}m ${s}s`;
+  }
 }
