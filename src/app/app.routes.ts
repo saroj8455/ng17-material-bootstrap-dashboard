@@ -115,6 +115,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'contacts',
+    loadComponent: () =>
+      import('./pages/contact-list/contact-list.component').then(
+        (c) => c.ContactListComponent
+      ),
+  },
+  {
     path: '**',
     component: PageNotFoundComponent,
   },

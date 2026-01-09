@@ -41,4 +41,6 @@
 
     <uses-permission android:name="android.permission.INTERNET"
       tools:ignore="ManifestOrder" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 </manifest>

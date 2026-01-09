@@ -22,7 +22,13 @@ interface Contact {
 export class ProfileEditComponent implements OnInit {
   profileForm: FormGroup;
   // Temporary Storage (Later replace with SQLite)
-  contacts: Contact[] = [];
+  contacts: Contact[] = [
+    { id: 1, fullName: 'Aarav Sharma', mobile: '9876543210' },
+    { id: 2, fullName: 'Sneha Patel', mobile: '9123456789' },
+    { id: 3, fullName: 'Rohan Gupta', mobile: '9988776655' },
+    { id: 4, fullName: 'Priya Singh', mobile: '9012345678' },
+    { id: 5, fullName: 'Vikram Malhotra', mobile: '8877665544' },
+  ];
   searchTerm: string = ''; // <--- 1. Variable for search input
 
   constructor(
